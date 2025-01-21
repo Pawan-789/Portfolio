@@ -31,13 +31,13 @@ const works = [
       imgSrc: '/images/project-5.jpg',
       title: 'eCommerce website',
       tags: ['eCommerce', 'Development'],
-      projectLink: 'https://github.com/codewithsadee/anon-ecommerce-website'
+      /*projectLink: 'https://github.com/codewithsadee/anon-ecommerce-website'*/
     },
     {
       imgSrc: '/images/project-6.jpg',
       title: 'vCard Personal portfolio',
       tags: ['Web-design', 'Development'],
-      projectLink: 'https://github.com/codewithsadee/vcard-personal-portfolio'
+     // projectLink: 'https://github.com/codewithsadee/vcard-personal-portfolio'
     },
   ];
 
