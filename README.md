@@ -1,8 +1,8 @@
 This is a prototype of my portfolio
 
 I have used :-
-tailwindcss
-Lenis for smooth scroll
+tailwindcss, 
+Lenis for smooth scroll, 
 GSAP
 
 
