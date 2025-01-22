@@ -1,4 +1,12 @@
-# React + Vite
+This is a prototype of my portfolio
+
+I have used :-
+tailwindcss
+Lenis for smooth scroll
+GSAP
+
+
+# React + Vit
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
