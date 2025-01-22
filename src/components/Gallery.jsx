@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 const galleryImages = [
   "/gallery/3.jpg",
-  "/gallery/8.jpg",
+  //"/gallery/8.jpg",
   "/gallery/4.jpg",
   "/gallery/1.jpg",
   "/gallery/5.jpg",

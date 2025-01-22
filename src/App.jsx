@@ -60,7 +60,7 @@ const App=() =>{
         <Skill />
         <Work />
         <ReviewCard />
-        <Gallery />
+        
         <Contact />
       </main>
       <Footer/>
