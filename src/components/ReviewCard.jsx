@@ -143,13 +143,9 @@ const ReviewCard = ({ onSubmit }) => {
   const [name, setName] = useState("");
 
   const handleRatingClick = (index) => setRating(index);
-
   const handleMouseEnter = (index) => setHoverRating(index);
-
   const handleMouseLeave = () => setHoverRating(0);
-
   const handleFeedbackChange = (e) => setFeedback(e.target.value);
-
   const handleNameChange = (e) => setName(e.target.value);
 
   const handleImageChange = (e) => {
@@ -171,10 +167,8 @@ const ReviewCard = ({ onSubmit }) => {
       alert("Please provide a rating, feedback, name, and your profile picture.");
     }
   };
-<h1>Share your experience</h1>
-  return (
 
-    
+  return (
     <div className="bg-zinc-800 p-5 rounded-xl min-w-[320px] text-white flex flex-col">
       <h3 className="text-lg font-bold mb-3">Rate Your Experience</h3>
       <div className="flex items-center gap-1 mb-3">
@@ -238,19 +232,9 @@ ReviewCard.propTypes = {
 
 const ReviewsCarousel = () => {
   const [reviews, setReviews] = useState([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleReviewSubmit = (review) => {
-    setReviews((prev) => [...prev, review]);
-    setCurrentIndex(reviews.length);
-  };
-
-  const handlePrev = () => {
-    setCurrentIndex((prev) => (prev > 0 ? prev - 1 : reviews.length - 1));
-  };
-
-  const handleNext = () => {
-    setCurrentIndex((prev) => (prev < reviews.length - 1 ? prev + 1 : 0));
+    setReviews((prevReviews) => [...prevReviews, review]);
   };
 
   return (
@@ -258,43 +242,25 @@ const ReviewsCarousel = () => {
       <ReviewCard onSubmit={handleReviewSubmit} />
 
       {reviews.length > 0 && (
-        <div className="mt-8 w-full max-w-xl bg-zinc-800 rounded-xl p-5 relative">
-          <div className="absolute top-1/2 -left-5 transform -translate-y-1/2">
-            <button
-              className="bg-yellow-500 text-black p-2 rounded-full hover:bg-yellow-600"
-              onClick={handlePrev}
-            >
-              ◀
-            </button>
-          </div>
-          <div className="absolute top-1/2 -right-5 transform -translate-y-1/2">
-            <button
-              className="bg-yellow-500 text-black p-2 rounded-full hover:bg-yellow-600"
-              onClick={handleNext}
-            >
-              ▶
-            </button>
-          </div>
-          <div className="flex flex-col items-center">
-            <img
-              src={reviews[currentIndex].profilePic}
-              alt="Reviewer"
-              className="w-16 h-16 rounded-full object-cover mb-3"
-            />
-            <div className="text-center">
-              <p className="text-lg font-bold text-white">{reviews[currentIndex].name}</p>
+        <div className="mt-8 w-full max-w-xl bg-zinc-800 rounded-xl p-5">
+          {reviews.map((review, index) => (
+            <div key={index} className="flex flex-col items-center mb-4">
+              <img
+                src={review.profilePic}
+                alt="Reviewer"
+                className="w-16 h-16 rounded-full object-cover mb-2"
+              />
+              <p className="text-lg font-bold text-white">{review.name}</p>
               <p className="text-yellow-400">
-                {Array.from({ length: reviews[currentIndex].rating }).map((_, i) => (
+                {Array.from({ length: review.rating }).map((_, i) => (
                   <span key={i} className="material-symbols-rounded">
                     star
                   </span>
                 ))}
               </p>
-              <p className="text-white italic mb-3">
-                "{reviews[currentIndex].feedback}"
-              </p>
+              <p className="text-white italic">"{review.feedback}"</p>
             </div>
-          </div>
+          ))}
         </div>
       )}
     </div>
